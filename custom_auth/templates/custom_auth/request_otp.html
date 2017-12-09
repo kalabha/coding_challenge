@@ -1,0 +1,38 @@
+{% extends "panorbit/base.html" %}
+{% load static %}
+{% block css %}
+  <link href="{% static 'css/custom.css' %}" rel="stylesheet" type="text/css">
+{% endblock css %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+
+            <h3 align="center">
+                Please Login
+            </h3>
+
+
+            <form action="{{form_url}}" method="post" class="form-horizontal form-signin">
+                {% csrf_token %}
+
+                    <div class="form-group">
+
+
+
+                            <input type="email" name="email" class="form-control" maxlength="254" required=""
+                       id="id_email" {% if email %}value="{{email}}" {% endif %} placeholder="Email">
+
+                    </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Send OTP</button></div>
+
+            </form>
+
+    </div>
+</div>
+
+
+{% endblock content %}
+

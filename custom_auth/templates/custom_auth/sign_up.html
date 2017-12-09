@@ -1,0 +1,33 @@
+{% extends "panorbit/base.html" %} {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 align="center">
+                Sign Up
+            </h3>
+
+            <form action="{{form_url}}" method="post" class="form-horizontal">
+                {% csrf_token %}
+                <fieldset>
+                    {% for field in form %}
+                    <div class="form-group">
+                        {{ field.errors }}
+                        <div class="col-sm-2">
+                            {{ field.label_tag }}
+                        </div>
+                        <div class="col-sm-8">
+                            {{ field }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </fieldset>
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+

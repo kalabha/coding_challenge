@@ -1,0 +1,90 @@
+{% extends "panorbit/base.html" %}
+{% load staticfiles %}
+{% block head %}
+
+{% endblock head %}
+{% block content %}
+<div class="container">
+    <div class="row">
+
+        <div class="jumbotron">
+            <h1 class="display-3"><a href="{{ country.get_absolute_url }}">{{ country.name }}</a></h1>
+            <table class="table table-hover table-responsive">
+                <thead>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Code</td>
+                    <td>{{ country.code }}</td>
+                </tr>
+                <tr>
+                    <td>Continent</td>
+                    <td>{{ country.continent }}</td>
+                </tr>
+                <tr>
+                    <td>Region</td>
+                    <td>{{ country.region }}</td>
+                </tr>
+                <tr>
+                    <td>Surface Area</td>
+                    <td>{{ country.surfacearea }}</td>
+                </tr>
+                <tr>
+                    <td>Independent Year</td>
+                    <td>{{ country.indepyear }}</td>
+                </tr>
+                <tr>
+                    <td>Population</td>
+                    <td>{{ country.population }}</td>
+                </tr>
+                <tr>
+                    <td>Life Expectancy</td>
+                    <td>{{ country.lifeexpectancy }}</td>
+                </tr>
+                <tr>
+                    <td>GNP</td>
+                    <td>{{ country.gnp }}</td>
+                </tr>
+                <tr>
+                    <td>GNPOLD</td>
+                    <td>{{ country.gnpold }}</td>
+                </tr>
+                <tr>
+                    <td>Local Name</td>
+                    <td>{{ country.localname }}</td>
+                </tr>
+                <tr>
+                    <td>Government form</td>
+                    <td>{{ country.governmentform }}</td>
+                </tr>
+                <tr>
+                    <td>Head of State</td>
+                    <td>{{ country.headofstate }}</td>
+                </tr>
+                <tr>
+                    <td>Capital</td>
+                    <td>{{ country.get_capital }}</td>
+                </tr>
+                <tr>
+                    <td>Code 2</td>
+                    <td>{{ country.code2 }}</td>
+                </tr>
+                <tr>
+                    <td>Country Languages</td>
+                    <td>{% for language in country.countrylanguage_set.all %}{{ language }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                </tr>
+                <tr>
+                    <td>Cities</td>
+                    <td>{% for city in country.city_set.all %}{{ city }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+{% block footer.scripts %}
+{% endblock footer.scripts %}

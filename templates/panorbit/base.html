@@ -1,0 +1,34 @@
+<!DOCTYPE html> {% load staticfiles %}
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"> {% block css %} {% endblock css %}
+  <style>
+
+  a{ text-decoration:none!important; }
+  </style>
+  {% block head %}
+  {% endblock head %}
+</head>
+
+<body>
+  {% include "panorbit/header.html" %}
+  <main>
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% block content %} {% endblock content %}
+  </main>
+  {% include "panorbit/footer.html" %}
+  <script type="text/javascript" src="{% static 'js/jquery-1.12.0.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  {% block footer.scripts %} {% endblock footer.scripts %}
+</body>
+
+</html>
+

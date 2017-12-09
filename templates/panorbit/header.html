@@ -1,0 +1,38 @@
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><strong>Coding Challenge</strong></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li>
+                    <a class="dropdown-toggle" id="dropdownMenuLink" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ request.user.first_name }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <ul class="nav" >
+                            <li><a href="{% url 'custom_auth:logout' %}">Logout</a></li>
+                        </ul>
+
+                    </div>
+                </li>
+
+                {% else %}
+                <li><a href="{% url 'custom_auth:sign_up' %}">Sign Up</a></li>
+                <li><a href="{% url 'custom_auth:login' %}">Login</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</nav>
